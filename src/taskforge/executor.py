@@ -38,6 +38,10 @@ class TaskResult:
     timed_out: bool
     duration_ms: int
 
+    @property
+    def succeeded(self) -> bool:
+        return self.exit_code == 0 and not self.timed_out
+
 
 def run_task(spec: TaskSpec) -> TaskResult:
     """执行命令并返回结果。永不抛异常。"""
