@@ -20,8 +20,10 @@ START_FAILED_EXIT_CODE = 127
 class TaskSpec:
     """一次要执行的命令。
 
-    workdir 预留给未来版本（见 ADR 0002）：v0 阶段不实现，
-    但字段位置先留出来，将来加它不需要改调用方的签名。
+    workdir 预留给未来版本：v0 阶段不实现，但字段位置先留出来，
+    将来加它不需要改调用方的签名。这条决策属于课程级，
+    记在学习工作区的 decisions/0002-reserve-workdir-without-implementing.md，
+    不是本仓库的 docs/decisions/0002（那条讲的是 squash merge 策略）。
     """
 
     cmd: list[str]

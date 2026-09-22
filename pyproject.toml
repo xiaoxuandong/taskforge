@@ -40,5 +40,6 @@ warn_unreachable = true        # 永远执行不到的代码要报警
 testpaths = ["tests"]
 addopts = "-v"
 markers = [
-    "integration: 需要外部依赖（数据库、Redis、Docker）的测试，第 3 课起使用",
+    "slow: 真的要等（起子进程、睡够超时）的测试，跑得慢但不依赖外部服务",
+    "integration: 需要外部依赖（数据库、Redis、Docker）的测试，第 6 课起使用",
 ]
