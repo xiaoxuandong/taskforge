@@ -4,7 +4,7 @@
 成功、失败、超时、启动失败，全部收敛成同一种返回形状 TaskResult，
 调用方（未来的 worker / agent loop）只需要看字段，不需要写 try/except。
 """
-
+import json
 import subprocess
 import time
 from dataclasses import dataclass
