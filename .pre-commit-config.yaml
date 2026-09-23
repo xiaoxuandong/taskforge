@@ -1,0 +1,27 @@
+repos:
+  # 第一组：用项目自己的 ruff，保证和 CI 跑的是同一个版本
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff check（lint）
+        entry: uv run ruff check --fix --force-exclude
+        language: system
+        types_or: [python, pyi]
+        require_serial: true
+      - id: ruff-format
+        name: ruff format（排版）
+        entry: uv run ruff format --force-exclude
+        language: system
+        types_or: [python, pyi]
+        require_serial: true
+
+  # 第二组：官方通用钩子，管的是"提交进来就麻烦了"的东西
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: detect-private-key
+      - id: check-added-large-files
+        args: ["--maxkb=1024"]
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-yaml
