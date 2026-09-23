@@ -15,8 +15,11 @@ jobs:
         with:
           python-version: "3.12"
       - run: uv sync
-      - run: uv run ruff check .
-      - run: uv run ruff format --check .
+      - name: ruff check（lint）
+        run: uv run ruff check .
+      - name: ruff format（排版）
+        if: always()
+        run: uv run ruff format --check .
 
   typecheck:
     runs-on: ubuntu-latest
